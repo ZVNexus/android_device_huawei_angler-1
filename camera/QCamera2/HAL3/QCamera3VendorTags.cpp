@@ -50,6 +50,8 @@ enum qcamera3_ext_tags qcamera3_ext3_section_bounds[QCAMERA3_SECTIONS_END -
         QCAMERA3_AV_TIMER_END,
         QCAMERA3_SENSOR_META_DATA_END,
         QCAMERA3_TEMPORAL_DENOISE_END,
+        QCAMERA3_ISO_EXP_PRIORITY_END,
+        QCAMERA3_SATURATION_END,
         NEXUS_EXPERIMENTAL_2015_END,
         NEXUS_EXPERIMENTAL_2016_END,
 } ;
@@ -69,6 +71,8 @@ const char *qcamera3_ext_section_names[QCAMERA3_SECTIONS_END -
     "org.codeaurora.qcamera3.av_timer",
     "org.codeaurora.qcamera3.sensor_meta_data",
     "org.codeaurora.qcamera3.temporal_denoise",
+    "org.codeaurora.qcamera3.iso_exp_priority",
+    "org.codeaurora.qcamera3.saturation",
     "com.google.nexus.experimental2015",
     "com.google.nexus.experimental2016"
 };
@@ -115,6 +119,17 @@ vendor_tag_info_t qcamera3_temporal_denoise[QCAMERA3_TEMPORAL_DENOISE_END -
     { "process_type", TYPE_INT32 }
 };
 
+vendor_tag_info qcamera3_iso_exp_priority[QCAMERA3_ISO_EXP_PRIORITY_END -
+                                  QCAMERA3_ISO_EXP_PRIORITY_START] = {
+    { "use_iso_exp_priority", TYPE_INT64 },
+    { "select_priority", TYPE_INT32 }
+};
+
+vendor_tag_info qcamera3_saturation[QCAMERA3_SATURATION_END -
+                                  QCAMERA3_SATURATION_START] = {
+   { "use_saturation", TYPE_INT32 }
+};
+
 vendor_tag_info_t nexus_experimental_2015[NEXUS_EXPERIMENTAL_2015_END -
         NEXUS_EXPERIMENTAL_2015_START] = {
     {"sensor.dynamicBlackLevel", TYPE_FLOAT },
@@ -136,6 +151,8 @@ vendor_tag_info_t *qcamera3_tag_info[QCAMERA3_SECTIONS_END -
     qcamera3_av_timer,
     qcamera3_sensor_meta_data,
     qcamera3_temporal_denoise,
+    qcamera3_iso_exp_priority,
+    qcamera3_saturation,
     nexus_experimental_2015,
     nexus_experimental_2016,
 };
@@ -169,6 +186,13 @@ uint32_t qcamera3_all_tags[] = {
     // QCAMERA3_TEMPORAL_DENOISE
     (uint32_t)QCAMERA3_TEMPORAL_DENOISE_ENABLE,
     (uint32_t)QCAMERA3_TEMPORAL_DENOISE_PROCESS_TYPE,
+
+    // QCAMERA3_ISO_EXP_PRIORITY
+    (uint32_t)QCAMERA3_USE_ISO_EXP_PRIORITY,
+    (uint32_t)QCAMERA3_SELECT_PRIORITY,
+
+    // QCAMERA3_SATURATION
+    (uint32_t)QCAMERA3_USE_SATURATION,
 
     //NEXUS_EXPERIMENTAL_2015
     (uint32_t)NEXUS_EXPERIMENTAL_2015_SENSOR_DYNAMIC_BLACK_LEVEL,
